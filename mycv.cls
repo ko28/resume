@@ -95,7 +95,7 @@
 % \subsection{title}[location]
 \RenewDocumentCommand{\subsection}{m o}{%
   \begingroup%
-  \vspace{\parskip}
+  \vspace{0}
   \normalsize%
   \phantomsection%
   \addcontentsline{toc}{subsection}{#1}%
