@@ -1,12 +1,13 @@
-# CV
+# Resume
+The easiest way to compile this is to use [Overleaf](http://www.overleaf.com).
+You can alternatively download Tex Live on your computer and compile it offline. 
 
-[![GitHub Actions Status](https://github.com/xu-cheng/cv/workflows/Github%20Actions%20CI/badge.svg)](https://github.com/xu-cheng/cv/actions)
+## Compiling using Overleaf 
+- Download this repository as a zip file, click the green 'Code' button and download as zip
+- Sign up for an [Overleaf](http://www.overleaf.com) account 
+- On Overleaf, click the green 'New Project' button and select 'Upload Project'
+- Upload the zip file you just downloaded
+- Overleaf should **automagically** compile it
 
-This is my CV. Inspired by:
-
-* [Jian Xu's CV](http://www.jianxu.net/en/files/JianXu_CV.pdf)
-* [How to write a LaTeX class file and design your own CV](https://www.overleaf.com/learn/latex/How_to_write_a_LaTeX_class_file_and_design_your_own_CV_(Part_1))
-
-## License
-
-LPPL-1.3c
+## Contributions 
+Inspired by [Jian Xu](https://github.com/xu-cheng/cv)'s cv. 
