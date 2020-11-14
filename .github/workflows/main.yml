@@ -10,7 +10,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: resume.tex
-          args: -f
       - name: push pdf to github.com/ko28/resume
         run: |
           # configure git
