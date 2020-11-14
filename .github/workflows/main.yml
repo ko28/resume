@@ -9,14 +9,13 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: cv.tex
-          latexmk_use_lualatex: true 
+          root_file: resume.tex
       - name: push pdf to github.com/ko28/resume
         run: |
           # configure git
           git config --global user.name "Daniel Ko"
           git config --global user.email "ko28@wisc.edu"
           # push pdf file to this repo
-          git add cv.pdf
+          git add resume.pdf
           git commit -m "[github actions] update pdf"
           git push
