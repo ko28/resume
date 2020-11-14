@@ -34,6 +34,7 @@
 
 % hyperref setting
 \RequirePackage[a-1b]{pdfx}
+\catcode30=12 % https://github.com/plk/biblatex/issues/1044
 \RequirePackage{hyperref}
 \hypersetup{
   unicode,
@@ -44,6 +45,7 @@
   pdfpagemode={UseOutlines},
   pdfpagelayout={OneColumn},
 }
+\urlstyle{same}
 
 % Page layout
 \RequirePackage{geometry}
@@ -76,7 +78,10 @@
 \RequirePackage{xparse}
 
 % Personal info
-\newcommand*{\name}[1]{\gdef\@name{#1}}
+\NewDocumentCommand{\name}{o m}{%
+  \gdef\@name{#2}
+  \IfValueTF{#1}{\gdef\@shortname{#1}}{\gdef\@shortname{#2}}
+}
 \newcommand*{\address}[1]{\gdef\@address{#1}}
 \newcommand*{\phone}[1]{\gdef\@phone{#1}}
 \newcommand*{\email}[1]{\gdef\@email{#1}}
@@ -95,7 +100,7 @@
 % \subsection{title}[location]
 \RenewDocumentCommand{\subsection}{m o}{%
   \begingroup%
-  \vspace{0}
+  %\vspace{\parskip}
   \normalsize%
   \phantomsection%
   \addcontentsline{toc}{subsection}{#1}%
@@ -139,13 +144,13 @@
         }%
         \ifthenelse{\isundefined{\@email}}{}{%
           \ifbool{isstart}{\setbool{isstart}{false}}{~~$\cdot$~~}%
-          \href{mailto:\@email}{\faIcon{envelope}~\@email}%
+          \href{mailto:\@email}{\faIcon{envelope}~\nolinkurl{\@email}}%
         }%
         \ifthenelse{\isundefined{\@mobile} \AND \isundefined{\@email}}{}{\\}%
         \setbool{isstart}{true}%
         \ifthenelse{\isundefined{\@homepage}}{}{%
           \ifbool{isstart}{\setbool{isstart}{false}}{~~$\cdot$~~}%
-          \href{\@homepage}{\faIcon{home}~\@homepage}%
+          \href{\@homepage}{\faIcon{home}~\nolinkurl{\@homepage}}%
         }%
         \ifthenelse{\isundefined{\@github}}{}{%
           \ifbool{isstart}{\setbool{isstart}{false}}{~~$\cdot$~~}%
@@ -163,11 +168,106 @@
 }
 
 % Footer
-%\RequirePackage{fancyhdr}
-%\pagestyle{fancy}
-%\fancyhf{}
-%\renewcommand{\headrulewidth}{0pt}
-%\fancyhfoffset[l]{\dimexpr\Gm@lmargin-\Gm@rmargin\relax}
-%\fancyfoot[L]{\textcolor{Gray}{\@date}}
-%\fancyfoot[C]{\textcolor{Gray}{\@name~~~$\cdot$~~~Curriculum Vitae}}
-%\fancyfoot[R]{\textcolor{Gray}{\thepage}}
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhfoffset[l]{\dimexpr\Gm@lmargin-\Gm@rmargin\relax}
+\fancyfoot[L]{\textcolor{Gray}{\@date}}
+\fancyfoot[C]{\textcolor{Gray}{\@shortname~~~$\cdot$~~~Curriculum Vitae}}
+\fancyfoot[R]{\textcolor{Gray}{\thepage}}
+
+% Publication
+\RequirePackage[
+  style=ieee,
+  dashed=false,
+  doi=false,
+  isbn=false,
+  url=false,
+  giveninits=true,
+  maxbibnames=10,
+  sorting=ddatent,
+]{biblatex}
+
+% declare custom field `usera` as the starting page
+% Ref: https://tex.stackexchange.com/a/485880/16996
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldsource=pages, final]
+      \step[fieldset=usera, origfieldval]
+      \step[fieldsource=usera,
+        match=\regexp{\A\s*(\p{Nd}+)\s*(\p{Pd}+)\s*(\p{Nd}+)\s*\z},
+        replace=\regexp{$1}
+      ]
+    }
+  }
+}
+
+\DeclareSortingTemplate{ddatent}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field[strside=left,strwidth=4]{sortyear}
+    \field[strside=left,strwidth=4]{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{00}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{00}
+  }
+  \sort{
+    \field{booktitle}
+    \field{journaltitle}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=4,padchar=0]{volume}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=4,padchar=0]{number}
+    \literal{9999}
+  }
+  \sort{
+    \field[padside=left,padwidth=4,padchar=0]{usera}
+    \literal{0000}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{\ifitemannotation{highlight}{\mkbibbold{#1}}{#1}}
+\renewcommand*{\mkbibnamefamily}[1]{\ifitemannotation{highlight}{\mkbibbold{#1}}{#1}\ifitemannotation{dagger}{\textsuperscript{\textdagger}}}
+\renewcommand*{\mkbibnameprefix}[1]{\ifitemannotation{highlight}{\mkbibbold{#1}}{#1}}
+\renewcommand*{\mkbibnamesuffix}[1]{\ifitemannotation{highlight}{\mkbibbold{#1}}{#1}}
+\DeclareFieldFormat{addendum}{\textcolor{Gray}{#1}}
+\defbibenvironment{bibliography}{\begin{enumerate}}{\end{enumerate}}{\item}
+
+\NewDocumentCommand{\publications}{o m}{%
+  \begin{refsection}[#2]
+    \nocite{*}
+    \IfValueTF{#1}{%
+      \printbibliography[heading=none,#1]%
+    }{%
+      \printbibliography[heading=none]%
+    }
+  \end{refsection}
+}
