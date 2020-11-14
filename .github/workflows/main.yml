@@ -31,7 +31,7 @@ jobs:
           cp -f resume.pdf "$GITHUB_WORKSPACE/website/assets/daniel_resume.pdf"
           cd "$GITHUB_WORKSPACE/website"
           git add assets/daniel_resume.pdf
-          git commit -m "[github actions] compile-latex-demo, update pdf"
+          git commit -m "[github actions] from ko28/resume, update resume"
           git push
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
