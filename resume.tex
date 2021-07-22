@@ -18,23 +18,28 @@
 \begin{itemize}[label={}]
   \item B.S.\ in Computer Science \printdate{Expected May 2022}
   \item 3.9/4.0 Cumulative GPA
-  %\item {Relevant Coursework: Discrete Mathematics, Linear Algebra, Multivariable Calculus, Object oriented programming, Data Structures, Algorithms, Artificial Intelligence, Computer Vision}
+  %\item {Relevant Coursework: Discrete Mathematics, Linear Algebra, Multivariable Calculus, Object oriented programming, Data Structures, Algorithms, Artificial Intelligence, Computer Vision, Operating Systems}
 \end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Professional \\ Experience}
 \subsection{Zendesk}[Madison, WI]
 \begin{positions}
-  \entry{Software Engineering Intern}{Oct 2020~--~Present}
+  \entry{Software Engineering Intern}{Oct 2020~--~June 2021}
 \end{positions}
 \begin{itemize}
   \item {
-     Collaborated closely with local and global team members to build large scale, efficient, and safe CI/CD pipelines that deploy to over dozens of servers globally for 300 million end users.
+     Collaborated closely with local and global team members to build large scale, efficient, and safe \textbf{CI/CD} pipelines that deploy to over dozens of servers globally for 300 million end users.
   }
   \item {
-  Created tool to provision a Spinnaker development environment via Terraform on AWS, containing a fully-fledged Kubernetes cluster and all of Spinnaker's microservices. Reduced developer setup time from a full day to 10 minutes. 
+  Created tool to provision a \textbf{Spinnaker} development environment via \textbf{Terraform} on \textbf{AWS}, containing a fully-fledged Kubernetes cluster for test deployment. Reduced developer setup time from a full day to 10 minutes. 
+  }
+  \item {
+  Extended the collection of \textbf{Spinnaker} metrics by adding support for stage rollback events. Collected and visualized metrics using \textbf{Datadog} and created alerts for abnormal stage event behaviors. 
+  }
+  \item {
+  Created a secret manager container for \textbf{Hashicorp Vault} from the ground up using the sidecar pattern. Fully written in \textbf{Go}, it supports Auto-Auth via a \textbf{Kubernetes} service account token, fetching and auto refreshing Vault KV secrets, and generating \textbf{AWS STS} tokens.
   }
  \end{itemize}
-  
   
 \subsection{TDS Telecom}[Madison, WI]
 \begin{positions}
@@ -80,36 +85,6 @@ field technicians.
 \end{itemize}
 
 
-\subsection{NASA 2019 Student Launch Initiative}[Madison, WI]
-\begin{positions}
-  \entry{Chief Hardware Engineer}{Sept 2018~--~June 2019}
-\end{positions}
-\begin{itemize}
-  \item Developed full stack application for our project: \textit{Measurement of Aerosols in Lower Atmosphere Using Optical Detection}.  
-  \item {
-  Included communication between payload and telemetry module to ground computer using a \textbf{XBee} module using serial communication. Ground computer had a \textbf{Python} backend which used SciPy and pandas to parse through and analyze telemetry and payload data. \textbf{Bootstrap} frontend for interactive dashboard with live 3D model tracking the gyroscope sensor.
-  }
-\end{itemize}
-
-\iffalse
-\subsection{Yu Lab (University of Wisconsin - Madison)}[Madison, WI]
-\begin{positions}
-  \entry{Research Intern}{Feb 2018~--~Sept 2018}
-\end{positions}
-\begin{itemize}
-  \item{
-  Researched various genes in the \textit{Aspergillus} genus and their effects on sporic life cycle. 
-  }
-  \item{
-  Inoculated various fungal cultures with target genes knocked out and performed western blot on those samples. 
-  }
- % \item{
- % Analyzed data using standard statistical methods and models in the microbiology field.
- % }
-\end{itemize}
-\fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Skills}
 \begin{description}
   \item[Programming] Java, Python, Perl, C, MATLAB, SQL, Bash, Go, HTML, CSS, Javascript
@@ -120,10 +95,10 @@ field technicians.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Awards}
 \begin{itemize}
+    \item{Language Flagship Scholarship, U.S. National Security
+    Education Program \printdate{2021}}
     \item{Foreign Language and Area Studies (FLAS) Fellowship, U.S. Department of Education \printdate{2020}}
-    \item {STEM Engagement Award (2nd), NASA Student Launch Initiative \printdate{2019}}
-    \item {Altitude Award (3rd), NASA Student Launch Initiative \printdate{2019}}
-    \item {Social Media Award (2rd) , NASA Student Launch Initiative \printdate{2019}}
+    \item {STEM Engagement, Altitude, Social Media Award, NASA Student Launch Initiative \printdate{2019}}
     \item {1st Place, Rocket for Schools Competition (cooperation with Gilroy and Ane Lab) \printdate{2018, 2019}}
     \item National Finalist, Team America Rocketry Challenge \printdate{2018}
 \end{itemize}
