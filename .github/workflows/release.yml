@@ -5,9 +5,9 @@ on:
     types: [completed]
     branches: [master]
 jobs:
-  release:
-    name: Multiply by 9
+  on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Download math result for job 1
         uses: actions/download-artifact@v2
@@ -16,3 +16,9 @@ jobs:
       - shell: bash
         run: |
           ls -la
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed, unable to find resume pdf.'
+
