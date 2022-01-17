@@ -1,10 +1,11 @@
 \documentclass{mycv}
 \usepackage{titlesec}
-
+\usepackage{hyperref}
+\usepackage{fontawesome}
 \thispagestyle{empty} 
 
-\name{Daniel Ko} %\small{(US Citizen)}
-\email{danielhbko@gmail.com / ko@cs.wisc.edu}
+\name{Daniel Ko} 
+\email{danielhbko@gmail.com}
 \homepage{https://ko28.github.io}
 \github{ko28}
 \linkedin{daniel-ko1}
@@ -20,29 +21,20 @@
   \item 3.9/4.0 Cumulative GPA
   %\item {Relevant Coursework: Discrete Mathematics, Linear Algebra, Multivariable Calculus, Object oriented programming, Data Structures, Algorithms, Artificial Intelligence, Computer Vision, Operating Systems}
 \end{itemize}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Professional \\ Experience}
-\subsection{CD Foundation}[Remote]
-\begin{positions}
-  \entry{Google Summer of Code Participant for Spinnaker}{May 2021~--~Sept 2021}
-\end{positions}
-\begin{itemize}
-  \item {
-    Developed a hosted playground version of Spinnaker aimed for new users to test out its UI and core features.
-  }
- \item{
- Infrastructure as code via \textbf{Terraform} to provision environment on \textbf{AWS} using an EKS cluster. Deployment of Spinnaker via Armory's OOS Spinnaker Operator.
- }
- \end{itemize}
- 
+
 \subsection{Zendesk}[Madison, WI]
 \begin{positions}
   \entry{Software Engineering Intern}{Oct 2020~--~June 2021}
 \end{positions}
 \begin{itemize}
+\iffalse
   \item {
      Collaborated closely with local and global team members to build large scale, efficient, and safe \textbf{CI/CD} pipelines that deploy to over dozens of servers globally for 300 million end users.
   }
+\fi
   \item {
   Created tool to provision a \textbf{Spinnaker} development environment via \textbf{Terraform} on \textbf{AWS}, containing a fully-fledged Kubernetes cluster for test deployment. Reduced developer setup time from a full day to 10 minutes. 
   }
@@ -97,15 +89,53 @@ field technicians.
   }
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Projects}
 
+%
+\subsection{Automatic Chord Recognition by Music Source Separation
+ \href{https://ko28.github.io/chord-transcription/}{\faicon{github}
+}
+}
+\begin{itemize}
+  \item {
+    Researched a novel automatic chord recognition method where songs are preprocessed by a music source separation model before being fed into a convolutional recurrent neural network. 
+  }
+\iffalse
+\item{
+Experiments have showed that the model trained with song computed from music source separation performed worse on average compared to a model trained on the original dataset.
+}
+\fi 
+ \end{itemize}
+
+
+\subsection{Google Summer of Code 2021 Participant for Spinnaker\
+    \href{https://github.com/spinnaker/try.spinnaker.io}{\faicon{github}}
+}
+\begin{itemize}
+  \item {
+    Developed a hosted playground version of Spinnaker aimed for new users to test out its UI and core features.
+  }
+ \item{
+ Infrastructure as code via \textbf{Terraform} to provision environment on \textbf{AWS} using an EKS cluster. Deployment of Spinnaker via Armory's OOS Spinnaker Operator.
+ }
+ \item{
+ AWS Load Balancer Controller to expose deployments, private ECR registry and image security policies via Portieris. 
+}
+\item{
+    Implemented AuthN via Google OAuth 2.0 and AuthZ rules via a custom Spinnaker plugin.
+}
+ \end{itemize}
+%%%%%%%%%%%%%%%%%%%
 \section{Skills}
 \begin{description}
   \item[Programming] Java, Python, Perl, C, MATLAB, SQL, Bash, Go, HTML, CSS, Javascript
   \item[Tools] Terraform, AWS, Spinnaker, Git, JIRA, Jenkins, *nix, \LaTeX 
   \item[Languages] English, Korean
-  \item[Miscellaneous] Red Cross Adult and Pediatric First Aid/CPR/AED Certification
+  % \item[Miscellaneous] Red Cross Adult and Pediatric First Aid/CPR/AED Certification
 \end{description}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 \section{Awards}
 \begin{itemize}
     \item{Language Flagship Scholarship, U.S. National Security
@@ -115,6 +145,8 @@ field technicians.
     \item {1st Place, Rocket for Schools Competition (cooperation with Gilroy and Ane Lab) \printdate{2018, 2019}}
     \item National Finalist, Team America Rocketry Challenge \printdate{2018}
 \end{itemize}
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \thispagestyle{empty} 
+
 \end{document}
