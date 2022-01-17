@@ -3,7 +3,7 @@ on:
   workflow_run:
     workflows: [Build LaTeX document]
     types: [completed]
-    branches: [main]
+    branches: [master]
 jobs:
   release:
     name: Multiply by 9
