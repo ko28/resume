@@ -1,7 +1,7 @@
 name: Create Release
 on: 
   workflow_run:
-    workflows: [build]
+    workflows: [Build LaTeX document]
     types: [completed]
     branches: [main, dev]
 jobs:
