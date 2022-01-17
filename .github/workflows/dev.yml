@@ -1,0 +1,19 @@
+name: Create Release
+on: 
+  workflow_run:
+    workflows: [build]
+    types: [completed]
+    branches: [main, dev]
+jobs:
+  release:
+    name: Multiply by 9
+    needs: build_latex
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v2
+        with:
+          name: resume_${{ github.sha }}
+      - shell: bash
+        run: |
+          ls -la

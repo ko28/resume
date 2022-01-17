@@ -13,5 +13,5 @@ jobs:
       - name: Archive resume artifact
         uses: actions/upload-artifact@v2
         with:
-          name: resume-${{ env.GITHUB_SHA }}
+          name: resume_${{ github.sha }}
           path: resume.pdf
