@@ -7,7 +7,6 @@ on:
 jobs:
   release:
     name: Multiply by 9
-    needs: build_latex
     runs-on: ubuntu-latest
     steps:
       - name: Download math result for job 1
