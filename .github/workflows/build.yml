@@ -2,6 +2,7 @@ name: Build LaTeX document
 on: [push]
 jobs:
   build_latex:
+    name: Build Resume 
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
@@ -15,3 +16,18 @@ jobs:
         with:
           name: resume_${{ github.sha }}
           path: resume.pdf
+  release:
+    name: Create Release 
+    runs-on: ubuntu-latest
+    needs: build_latex
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Download resume pdf artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: resume_${{ github.sha }}
+      - shell: bash
+        run: |
+          ls -la
+    
+    
