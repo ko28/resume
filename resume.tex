@@ -8,7 +8,7 @@
 \email{danielhbko@gmail.com}
 \homepage{https://ko28.github.io}
 \github{ko28}
-\linkedin{daniel-ko1}
+%\linkedin{daniel-ko1}
 
 \begin{document}
 
@@ -17,13 +17,48 @@
 \section{Education}
 \subsection{University of Wisconsin - Madison}[Madison, WI]
 \begin{itemize}[label={}]
-  \item B.S.\ in Computer Science \printdate{Expected May 2023}
+  \item B.S.\ in Computer Science, Phi Beta Kappa Member (Top 5\%) \printdate{Expected May 2023}
   \item 3.9/4.0 Cumulative GPA
   %\item {Relevant Coursework: Discrete Mathematics, Linear Algebra, Multivariable Calculus, Object oriented programming, Data Structures, Algorithms, Artificial Intelligence, Computer Vision, Operating Systems}
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Professional \\ Experience}
+
+\subsection{Capital One}[Remote]
+\begin{positions}
+\entry{Software Engineering Intern}{June 2022~--~Aug 2022}
+\end{positions}
+\begin{itemize}
+    \item{
+     Implemented infrastructure and database as code for the Transaction Intelligence Machine Learning team. 
+    }
+    \item{
+    Leveraged \textbf{Jenkins} declarative pipelines to provision database clusters on \textbf{AWS}, support seamless multi-region failover, and validate snapshot data. Reduced time to deploy \textbf{AWS} infrastructure by 90\% by eliminating developer interaction after defining infrastructure as code.
+    }
+    \item{
+    Automated the manual process of executing database schema changes and change order approval via \textbf{Flyway} and declarative pipelines. 
+    }
+\end{itemize}
+
+\subsection{Cogito}[Remote]
+\begin{positions}
+  \entry{Telephony Engineering Intern}{Jan 2022~--~May 2022}
+\end{positions}
+\begin{itemize}
+  \item {
+  Spearheaded the development and automation of a stress test framework in \textbf{Python} for Cogito Dialog
+  resulting in safe and reliable builds without developer interaction. 
+  }
+  \item{
+  Decreased the duration of build and stress test of the telephony subsystem by 10x and supported continuous integration via \textbf{Jenkins}.
+  }
+    \item {
+  Wrote and deployed a \textbf{Python} web app to visualize 100+ key metrics and logs from the build and stress test automation.   
+}
+  \item{
+  Managed several \textbf{AWS}, hybrid, and on-premise environments, supporting both the telephony legacy platform and telephony on \textbf{Kubernetes}.
+  }
+\end{itemize}
 
 \subsection{Zendesk}[Madison, WI]
 \begin{positions}
@@ -45,7 +80,8 @@
   Created a secret manager container for \textbf{Hashicorp Vault} from the ground up using the sidecar pattern. Fully written in \textbf{Go}, it supports Auto-Auth via a \textbf{Kubernetes} service account token, fetching and auto refreshing Vault KV secrets, and generating \textbf{AWS STS} tokens.
   }
  \end{itemize}
-  
+
+\iffalse
 \subsection{TDS Telecom}[Madison, WI]
 \begin{positions}
   \entry{Software Engineering Intern}{Sept 2019~--~Oct 2020}
@@ -68,8 +104,10 @@ internal \textbf{RESTful} services and \textbf{SQL} servers. Web applications us
 field technicians.
   }
 \end{itemize}
+\fi
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\iffalse
 \subsection{Juni Learning}[Remote]
 \begin{positions}
   \entry{Computer Science Instructor}{Sept 2019~--~Jan 2020}
@@ -88,7 +126,7 @@ field technicians.
     knowledgeable collaborator rather than an source of infallible facts. 
   }
 \end{itemize}
-
+\fi 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Projects}
 
@@ -129,8 +167,8 @@ Experiments have showed that the model trained with song computed from music sou
 %%%%%%%%%%%%%%%%%%%
 \section{Skills}
 \begin{description}
-  \item[Programming] Java, Python, Perl, C, MATLAB, SQL, Bash, Go, HTML, CSS, Javascript
-  \item[Tools] Docker, Kubernetes, Terraform, AWS, Spinnaker, Git, JIRA, Jenkins, *nix, \LaTeX 
+  \item[Programming] Java, Python, Go, Perl, C, MATLAB, SQL, Bash, HTML, CSS, Javascript
+  \item[Tools] Docker, Kubernetes, Terraform, AWS, GCP, Spinnaker, Git, Jenkins, Linux, \LaTeX 
   \item[Languages] English, Korean
   % \item[Miscellaneous] Red Cross Adult and Pediatric First Aid/CPR/AED Certification
 \end{description}
