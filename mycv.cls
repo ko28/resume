@@ -53,7 +53,7 @@
 \geometry{
   a4paper,
   top=2cm,
-  bottom=2cm,
+  bottom=0.5cm,
   left=4.5cm,
   right=1.5cm,
   includefoot,
